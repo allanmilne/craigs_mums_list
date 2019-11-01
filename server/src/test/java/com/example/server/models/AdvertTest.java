@@ -13,7 +13,7 @@ public class AdvertTest {
 
     @Before
     public void setUp() {
-        seller = new Seller();
+        seller = new Seller("Stevey", "Bobbins", "0123456789", "craigs@mum.com", "Edinburgh");
         advert = new Advert("www.google.com", "Great item.", "Chocolate", 5000, new Date(2323223232L), "The Weeg", false, seller);
     }
 
