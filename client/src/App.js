@@ -1,10 +1,9 @@
 import React from 'react';
+import AdvertContainer from './components/AdvertContainer'
 
 function App() {
   return (
-    <div className="App">
-        Hello im the app
-    </div>
+    <AdvertContainer />
   );
 }
 
