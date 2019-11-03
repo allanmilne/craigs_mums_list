@@ -1,4 +1,5 @@
 import React from 'react';
+import Advert from './Advert'
 
 class AdvertList extends React.Component {
 
