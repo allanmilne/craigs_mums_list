@@ -14,7 +14,7 @@ public class SellerTest {
     @Before
     public void setUp() {
         seller = new Seller("Stevey", "Bobbins", "0123456789", "craigs@mum.com", "Edinburgh");
-        advert = new Advert("www.google.com", "Great item.", "Chocolate", 5000, new Date(2323223232L), "The Weeg", false, seller);
+        advert = new Advert("www.google.com", "Great item.", "Chocolate", 5000, new Date(2323223232L), false, seller);
     }
 
     @Test
@@ -47,36 +47,4 @@ public class SellerTest {
         assertEquals(0, seller.getAdverts().size());
     }
 
-    @Test
-    public void canSetFirstName() {
-        seller.setFirstName("steve");
-        assertEquals("steve", seller.getFirstName());
-    }
-
-    @Test
-    public void canSetLastName() {
-        seller.setLastName("Jones");
-        assertEquals("Jones", seller.getLastName());
-    }
-
-    @Test
-    public void canSetPhoneNumber() {
-        seller.setPhoneNumber("999");
-        assertEquals("999", seller.getPhoneNumber());
-    }
-
-    @Test
-    public void canSetEmailAddress() {
-        seller.setEmailAddress("different@email.address");
-        assertEquals("different@email.address", seller.getEmailAddress());
-    }
-
-    @Test
-    public void canSetLocation() {
-        seller.setLocation("Mars");
-        assertEquals("Mars", seller.getLocation());
-    }
-
-    @Test
-    public void
 }

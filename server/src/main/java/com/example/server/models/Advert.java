@@ -1,51 +1,46 @@
 package com.example.server.models;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="adverts")
 public class Advert {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name= "image")
     private String image;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "price")
     private int price;
+
+    @Column(name = "date_listed")
     private Date dateListed;
-    private String location;
+
+    @Column(name = "is_sold")
     private boolean isSold;
+
+    @ManyToOne
+    @JoinColumn(name = "seller_id")
     private Seller seller;
 
-    public Advert(String image, String description, String title, int price, Date dateListed, String location, boolean isSold, Seller seller) {
+    public Advert(String image, String description, String title, int price, Date dateListed, boolean isSold, Seller seller) {
         this.image = image;
         this.description = description;
         this.title = title;
         this.price = price;
         this.dateListed = dateListed;
-        this.location = location;
         this.isSold = isSold;
         this.seller = seller;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public void setSold(boolean sold) {
-        isSold = sold;
     }
 
     public Long getId() {
@@ -70,10 +65,6 @@ public class Advert {
 
     public Date getDateListed() {
         return dateListed;
-    }
-
-    public String getLocation() {
-        return location;
     }
 
     public boolean isSold() {
