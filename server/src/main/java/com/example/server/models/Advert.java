@@ -43,6 +43,10 @@ public class Advert {
         this.seller = seller;
     }
 
+    public Advert() {
+
+    }
+
     public Long getId() {
         return id;
     }

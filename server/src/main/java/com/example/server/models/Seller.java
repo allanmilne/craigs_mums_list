@@ -41,6 +41,10 @@ public class Seller {
         this.location = location;
     }
 
+    public Seller() {
+
+    }
+
     public Long getId() {
         return id;
     }
