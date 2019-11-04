@@ -1,12 +1,13 @@
 import React from 'react';
 import { ReactComponent as Logo } from '../assets/shopping-cart.svg';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
+      <Link class="navbar-brand" href="#">
         <Logo width="30" height="30" alt="" />
-      </a>
+      </Link>
       <button
         class="navbar-toggler"
         type="button"
@@ -20,18 +21,18 @@ const Navbar = () => {
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">
+          <Link to="/" class="nav-item nav-link active" href="#">
             Home <span class="sr-only">(current)</span>
-          </a>
-          <a class="nav-item nav-link" href="#">
+          </Link>
+          <Link to="/watchlist" class="nav-item nav-link" href="#">
             Watchlist
-          </a>
-          <a class="nav-item nav-link" href="#">
+          </Link>
+          <Link to="/myads" class="nav-item nav-link" href="#">
             My Ads
-          </a>
-          <a class="nav-item nav-link" href="#">
+          </Link>
+          <Link to="/settings" class="nav-item nav-link" href="#">
             Settings
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
