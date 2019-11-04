@@ -20,6 +20,9 @@ public class Advert {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "category")
+    private Category category;
+
     @Column(name = "price")
     private int price;
 
@@ -33,10 +36,11 @@ public class Advert {
     @JoinColumn(name = "seller_id")
     private Seller seller;
 
-    public Advert(String image, String description, String title, int price, Date dateListed, boolean isSold, Seller seller) {
+    public Advert(String image, String description, String title, Category category, int price, Date dateListed, boolean isSold, Seller seller) {
         this.image = image;
         this.description = description;
         this.title = title;
+        this.category = category;
         this.price = price;
         this.dateListed = dateListed;
         this.isSold = isSold;
@@ -61,6 +65,10 @@ public class Advert {
 
     public String getTitle() {
         return title;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 
     public int getPrice() {
