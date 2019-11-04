@@ -1,11 +1,12 @@
 import React from 'react';
 
-const Advert = ({advert}) => {
+const Advert = ({advert, handleClick}) => {
     return (
         <>
-        <a href=""><p>Item Title: {advert.title}</p></a>
+        <p>Item Title: {advert.title}</p>
         <p>Item Price: {advert.price}</p>
         <p>Item Location: {advert._embedded.seller.location}</p> 
+        <button onClick={(event) => handleClick(event.target.value)} value={advert.id}>Detail</button>
         </>
     )
 }

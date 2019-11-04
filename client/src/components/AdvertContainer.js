@@ -5,7 +5,8 @@ class AdvertContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      adverts: []
+      adverts: [],
+      selectedAdvert: null
     };
   }
 
@@ -17,11 +18,17 @@ class AdvertContainer extends React.Component {
       });
   }
 
+  handleClick = (id) => {
+    this.setState({
+      selectedAdvert: id
+    })
+  }
+
   render() {
     return (
       <>
         <div>I am the AdvertContainer!</div>
-        <AdvertList adverts={this.state.adverts} />
+        <AdvertList adverts={this.state.adverts} handleClick={this.handleClick}/>
       </>
     );
   }

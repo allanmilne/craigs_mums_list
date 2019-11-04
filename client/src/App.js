@@ -1,9 +1,10 @@
 import React from 'react';
-import AdvertContainer from './components/AdvertContainer'
+import AdvertContainer from './components/AdvertContainer';
+
 
 function App() {
-  return (
-    <AdvertContainer />
+  return (  
+      <AdvertContainer/>
   );
 }
 
