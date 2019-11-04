@@ -7,13 +7,8 @@ class AdvertContainer extends React.Component {
     super();
     this.state = {
       adverts: [],
-<<<<<<< HEAD
       selectedAdvert: null,
       loaded: false
-=======
-      selectedAdvert: '',
-      selectedSeller: ''
->>>>>>> b19f6ce25013db3255b24a007620ad186d3796e1
     };
   }
 
@@ -30,22 +25,14 @@ class AdvertContainer extends React.Component {
       advert => advert.id === parseInt(id)
     );
     this.setState({
-<<<<<<< HEAD
       selectedAdvert: advert
     });
   };
-=======
-      selectedAdvert: advert,
-      selectedSeller: advert._embedded.seller
-    })
-  }
->>>>>>> b19f6ce25013db3255b24a007620ad186d3796e1
 
   render() {
     return (
       <>
         <div>Adverts</div>
-<<<<<<< HEAD
         {this.state.loaded ? (
           <AdvertList
             adverts={this.state.adverts}
@@ -55,10 +42,6 @@ class AdvertContainer extends React.Component {
         {this.state.selectedAdvert ? (
           <AdvertDetail selectedAdvert={this.state.selectedAdvert} />
         ) : null}
-=======
-        <AdvertList adverts={this.state.adverts} handleClick={this.handleClick}/>
-        <AdvertDetail selectedAdvert={this.state.selectedAdvert} selectedSeller={this.state.selectedSeller}/>
->>>>>>> b19f6ce25013db3255b24a007620ad186d3796e1
       </>
     );
   }
