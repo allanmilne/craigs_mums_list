@@ -7,7 +7,8 @@ class AdvertContainer extends React.Component {
     super();
     this.state = {
       adverts: [],
-      selectedAdvert: ''
+      selectedAdvert: '',
+      selectedSeller: ''
     };
   }
 
@@ -22,7 +23,8 @@ class AdvertContainer extends React.Component {
   handleClick = (id) => {
     const advert = this.state.adverts.find(advert => advert.id === parseInt(id));
     this.setState({
-      selectedAdvert: advert
+      selectedAdvert: advert,
+      selectedSeller: advert._embedded.seller
     })
   }
 
@@ -31,7 +33,7 @@ class AdvertContainer extends React.Component {
       <>
         <div>Adverts</div>
         <AdvertList adverts={this.state.adverts} handleClick={this.handleClick}/>
-        <AdvertDetail selectedAdvert={this.state.selectedAdvert}/>
+        <AdvertDetail selectedAdvert={this.state.selectedAdvert} selectedSeller={this.state.selectedSeller}/>
       </>
     );
   }
