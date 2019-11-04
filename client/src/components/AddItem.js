@@ -55,22 +55,22 @@ class AddItem extends React.Component {
         return (
             <>
                 <form>
-                    <label for="item_title">Item Title</label>
+                    <label htmlFor="item_title">Item Title</label>
                     <input onChange={this.handleTitleChange} type="text" name="item_title"></input>
 
-                    <label for="category">Category</label>
+                    <label htmlFor="category">Category</label>
                     <select onChange={this.handleCategoryChange} name="category">
                         <option>Toys</option>
                         <option>Cars</option>
                     </select>
 
-                    <label for="description">Description</label>
+                    <label htmlFor="description">Description</label>
                     <input onChange={this.handleDescriptionChange} type="text" name="description"></input>
 
-                    <label for="image">Image</label>
+                    <label htmlFor="image">Image</label>
                     <input onChange={this.handleImageChange} name="image" type="text"></input>
 
-                    <label for="price">Price</label>
+                    <label htmlFor="price">Price</label>
                     <input onChange={this.handlePriceChange} name="price" type="number"></input>
 
                     <input type="submit" value="Submit" />
