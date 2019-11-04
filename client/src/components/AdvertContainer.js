@@ -1,6 +1,7 @@
 import React from 'react';
 import AdvertList from './AdvertList.js';
 import AdvertDetail from './AdvertDetail.js';
+import AddItem from './AddItem'
 
 class AdvertContainer extends React.Component {
   constructor() {
@@ -29,6 +30,12 @@ class AdvertContainer extends React.Component {
     });
   };
 
+  handleFormSubmit(details) {
+    
+  }
+
+
+
   render() {
     return (
       <>
@@ -42,6 +49,8 @@ class AdvertContainer extends React.Component {
         {this.state.selectedAdvert ? (
           <AdvertDetail selectedAdvert={this.state.selectedAdvert} />
         ) : null}
+
+          <AddItem />
       </>
     );
   }

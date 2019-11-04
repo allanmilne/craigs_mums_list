@@ -11,6 +11,7 @@ class AddItem extends React.Component {
         image: '',
         price: null,
     }
+    
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
@@ -67,7 +68,7 @@ class AddItem extends React.Component {
                     <input onChange={this.handleDescriptionChange} type="text" name="description"></input>
 
                     <label for="image">Image</label>
-                    <input onChange={this.handleImageChange} name="image" type="file"></input>
+                    <input onChange={this.handleImageChange} name="image" type="text"></input>
 
                     <label for="price">Price</label>
                     <input onChange={this.handlePriceChange} name="price" type="number"></input>
