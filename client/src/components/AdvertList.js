@@ -7,7 +7,7 @@ class AdvertList extends React.Component {
       <ul>
         {this.props.adverts.map(advert => (
           <li key={advert.id}>
-            <Advert advert={advert} handleClick={this.props.handleClick}/>
+            <Advert advert={advert} handleClick={this.props.handleClick} />
           </li>
         ))}
       </ul>
