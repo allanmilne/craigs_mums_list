@@ -1,12 +1,12 @@
 import React from 'react';
-import AdvertContainer from './components/AdvertContainer'
-import AddItem from './components/AddItem'
+import AdvertContainer from './components/AdvertContainer';
+import Navbar from './components/NavBar';
 
 function App() {
   return (
     <>
-    <AdvertContainer />
-    <AddItem />
+      <Navbar />
+      <AdvertContainer />
     </>
   );
 }
