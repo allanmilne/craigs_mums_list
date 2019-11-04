@@ -1,36 +1,88 @@
 import React from 'react';
 
-const AddItem = () => {
+class AddItem extends React.Component {
 
-    handleSubmit(event) {
-        
+    constructor(props){
+    super(props);
+    this.state = {
+        title: '',
+        category: '',
+        description: '',
+        image: '',
+        price: null,
+    }
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleCategoryChange = this.handleCategoryChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
+    this.handlePriceChange = this.handlePriceChange.bind(this);
+    
+
     }
 
-    return (
-        <>
-        <form onSubmit={this.handleSubmit}>
-            <label for="item_title">Item Title</label>
-            <input type="text" name="item_title"></input>
+    handleTitleChange(event) {
+        this.setState({
+            title: event.target.value
+        })     
+    }
 
-            <label for="category">Category</label>
-            <select name="category">
-                <option>{category}</option>
-            </select>
+    handleCategoryChange(event) {
+        this.setState({
+            category: event.target.value
+        })     
+    }
 
-            <label for="description">Description</label>
-            <input type="text" name="description"></input>
+    handleDescriptionChange(event) {
+        this.setState({
+            description: event.target.value
+        })     
+    }
 
-            <label for="image">Image</label>
-            <input name="image" type="image"></input>
+    handleImageChange(event) {
+        this.setState({
+            image: event.target.value
+        })     
+    }
 
-            <label for="price">Price</label>
-            <input name="price" type="number"></input>
+    handlePriceChange(event) {
+        this.setState({
+            price: event.target.value
+        })     
+    }
 
-            <input type="submit" value="Submit" />
 
-        </form>
-        </>
-    )
+
+
+
+
+    render() {
+        return (
+            <>
+                <form>
+                    <label for="item_title">Item Title</label>
+                    <input onChange={this.handleTitleChange} type="text" name="item_title"></input>
+
+                    <label for="category">Category</label>
+                    <select onChange={this.handleCategoryChange} name="category">
+                        <option>Toys</option>
+                        <option>Cars</option>
+                    </select>
+
+                    <label for="description">Description</label>
+                    <input onChange={this.handleDescriptionChange} type="text" name="description"></input>
+
+                    <label for="image">Image</label>
+                    <input onChange={this.handleImageChange} name="image" type="file"></input>
+
+                    <label for="price">Price</label>
+                    <input onChange={this.handlePriceChange} name="price" type="number"></input>
+
+                    <input type="submit" value="Submit" />
+
+                </form>
+            </>
+        )
+    }
 }
 
 export default AddItem;
