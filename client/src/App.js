@@ -1,10 +1,13 @@
 import React from 'react';
 import AdvertContainer from './components/AdvertContainer';
-
+import Navbar from './components/NavBar';
 
 function App() {
-  return (  
-      <AdvertContainer/>
+  return (
+    <>
+      <Navbar />
+      <AdvertContainer />
+    </>
   );
 }
 
