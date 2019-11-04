@@ -30,9 +30,7 @@ class AdvertContainer extends React.Component {
     });
   };
 
-  handleFormSubmit(details) {
-    
-  }
+
 
 
 
