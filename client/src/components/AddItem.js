@@ -65,38 +65,62 @@ class AddItem extends React.Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="title">Enter title</label>
-          <input
-            id="title"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleTitleChange}
-            type="text"
-          />
+        <div class="container">
+          <form onSubmit={this.handleSubmit}>
 
-          <label htmlFor="description">Enter description</label>
-          <input
-            id="description"
-            name="description"
-            value={this.state.description}
-            onChange={this.handleDescriptionChange}
-            type="text"
-          />
+            <div class="row">
+              <div class="col">
+                <label htmlFor="title">Enter title</label>
+              </div>
+              <div class="col">
+                <input
+                  id="title"
+                  name="title"
+                  value={this.state.title}
+                  onChange={this.handleTitleChange}
+                  type="text"
+                />
+              </div>
 
-          <label htmlFor="price">Enter price</label>
-          <input
-            id="price"
-            name="price"
-            value={this.state.price}
-            onChange={this.handlePriceChange}
-            type="number"
-          />
-
-          <button className="submitAdvert" type="submit">
-            Send data!
-          </button>
-        </form>
+            </div>
+            
+            <div class="row">
+              <div class="col">
+                <label htmlFor="description">Enter description</label>
+              </div>
+              <div class="col">
+                <input
+                  id="description"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.handleDescriptionChange}
+                  type="text"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label htmlFor="price">Enter price</label>
+              </div>
+              <div class="col">
+                <input
+                  id="price"
+                  name="price"
+                  value={this.state.price}
+                  onChange={this.handlePriceChange}
+                  type="number"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button className="submitAdvert" type="submit">
+                  Send data!
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </>
     );
   }
