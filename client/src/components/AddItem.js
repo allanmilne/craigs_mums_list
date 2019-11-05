@@ -43,7 +43,7 @@ class AddItem extends React.Component {
     });
   };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     fetch('http://localhost:8080/adverts', {
       method: 'POST',
@@ -56,48 +56,104 @@ class AddItem extends React.Component {
         description: this.state.description,
         price: this.state.price,
         seller: this.state.seller
+        // image: this.state.image,
+        // category: this.state.category
       })
     })
-      .then(res => res.json()) //TODO Log and error and only overwrite the state values when we get a success code.
-      .then(this.setState({ title: '', description: '', price: '' }));
-  }
+      .then(res => res.json())
+      .then(() => this.props.getData())
+      .then(
+        this.setState({ title: '', description: '', price: '', image: '' })
+      );
+  };
 
   render() {
     return (
-      <>
+      <div className="container">
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="title">Enter title</label>
-          <input
-            id="title"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleTitleChange}
-            type="text"
-          />
-
-          <label htmlFor="description">Enter description</label>
-          <input
-            id="description"
-            name="description"
-            value={this.state.description}
-            onChange={this.handleDescriptionChange}
-            type="text"
-          />
-
-          <label htmlFor="price">Enter price</label>
-          <input
-            id="price"
-            name="price"
-            value={this.state.price}
-            onChange={this.handlePriceChange}
-            type="number"
-          />
-
-          <button className="submitAdvert" type="submit">
-            Send data!
-          </button>
+          <div className="row">
+            <div className="col">
+              <label htmlFor="title">Enter title</label>
+            </div>
+            <div className="col">
+              <input
+                id="title"
+                name="title"
+                value={this.state.title}
+                onChange={this.handleTitleChange}
+                type="text"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <label htmlFor="image">Enter Image Link</label>
+            </div>
+            <div className="col">
+              <input
+                id="image"
+                name="image"
+                value={this.state.image}
+                onChange={this.handleImageChange}
+                type="text"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <label htmlFor="category">Enter title</label>
+            </div>
+            <div className="col">
+              <select
+                onChange={this.handleCategoryChange}
+                value={this.state.category}
+              >
+                <option>Automobiles</option>
+                <option>Toys</option>
+                <option>Home</option>
+                <option>Electronics</option>
+                <option>Freebies</option>
+                <option>Appliances</option>
+              </select>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <label htmlFor="description">Enter description</label>
+            </div>
+            <div className="col">
+              <input
+                id="description"
+                name="description"
+                value={this.state.description}
+                onChange={this.handleDescriptionChange}
+                type="text"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <label htmlFor="price">Enter price</label>
+            </div>
+            <div className="col">
+              <input
+                id="price"
+                name="price"
+                value={this.state.price}
+                onChange={this.handlePriceChange}
+                type="number"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <button className="submitAdvert" type="submit">
+                Send data!
+              </button>
+            </div>
+          </div>
         </form>
-      </>
+      </div>
     );
   }
 }
