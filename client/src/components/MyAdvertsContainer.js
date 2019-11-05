@@ -10,11 +10,11 @@ class AdvertContainer extends React.Component {
       adverts: [],
       selectedAdvert: null,
       loaded: false,
-      url: 'http://localhost:8080/adverts'
+      url:
+        'http://localhost:8080/adverts/search/findAdvertBySellerId?sellerId=1'
     };
   }
 
-  //'http://localhost:8080/adverts/search/findAdvertBySellerId?sellerId=1'
   componentDidMount() {
     this.getData();
   }
