@@ -18,28 +18,12 @@ class AddItem extends React.Component {
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.handleImageChange = this.handleImageChange.bind(this);
     this.handlePriceChange = this.handlePriceChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     
 
     }
 
-    handleFormSubmit(event) {
-        event.preventDefault();
-        const data = {
-          title: this.state.title,
-          category: this.state.category,
-          description: this.state.description,
-          image: this.state.image,
-          price: this.state.price,
-        }
 
-        fetch('http://localhost:8080/ads', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {'Content-Type': 'application/json'}
-        })
-        .then(res => res.json())
-        .catch(error => console.error())
-      }
 
     handleTitleChange(event) {
         this.setState({
