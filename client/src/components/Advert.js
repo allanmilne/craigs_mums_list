@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Advert = ({ advert, handleClick }) => {
-  console.log(advert);
   
   return (
     <>
