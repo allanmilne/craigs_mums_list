@@ -1,7 +1,8 @@
 import React from 'react';
 import AdvertList from './AdvertList.js';
 import AdvertDetail from './AdvertDetail.js';
-import AddItem from './AddItem'
+import AddItem from './AddItem';
+
 
 class AdvertContainer extends React.Component {
   constructor() {
@@ -9,8 +10,10 @@ class AdvertContainer extends React.Component {
     this.state = {
       adverts: [],
       selectedAdvert: null,
-      loaded: false
+      loaded: false,
+      // sellers: []
     };
+    this.handleAdvertSubmit = this.handleAdvertSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +22,11 @@ class AdvertContainer extends React.Component {
       .then(result => {
         this.setState({ adverts: result._embedded.adverts, loaded: true });
       });
+    // fetch('http://localhost:8080/sellers') 
+    //   .then(res => res.json())
+    //   .then(result => {
+    //     this.setState({sellers: result._embedded.sellers})
+    //   })
   }
 
   handleClick = id => {
@@ -30,10 +38,11 @@ class AdvertContainer extends React.Component {
     });
   };
 
-  handleFormSubmit(details) {
-    
+  handleAdvertSubmit(advert){
+    // advert.id = Date.now();
+    const updatedAdverts = [...this.state.adverts, advert]
+    this.setState({adverts: updatedAdverts})
   }
-
 
 
   render() {
@@ -50,7 +59,7 @@ class AdvertContainer extends React.Component {
           <AdvertDetail selectedAdvert={this.state.selectedAdvert} />
         ) : null}
 
-          <AddItem />
+          <AddItem onAdvertSubmit={this.handleAdvertSubmit}/>
       </>
     );
   }
