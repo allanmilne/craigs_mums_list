@@ -4,10 +4,7 @@ import com.example.server.models.Advert;
 import com.example.server.repositories.AdvertRepository;
 import com.example.server.repositories.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -20,4 +17,15 @@ public class AdvertController {
 
     @Autowired
     SellerRepository sellerRepository;
+
+    @GetMapping(value = "/custom-search")
+    @ResponseBody
+    public String getCustomSearchResults() {
+        return "I'm hungry and tired !";
+    }
+
+    //    public List<Advert> getCustomSearchResults(@RequestParam String title, @RequestParam String category, @RequestParam int price){
+//        return "I'm hungry and tired !";
+//    }
+
 }
