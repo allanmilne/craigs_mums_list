@@ -65,13 +65,11 @@ class AddItem extends React.Component {
           },
           body: JSON.stringify({
             title: this.state.title,
-            // category: this.state.category,
             description: this.state.description,
             price: this.state.price,
           })
       });
         const title = this.state.title.trim();
-        // const category = this.state.category.trim();
         const description = this.state.description.trim();
         const price = this.state.price.trim();
         if (!title || !description || !price) {

@@ -11,7 +11,6 @@ class AdvertContainer extends React.Component {
       adverts: [],
       selectedAdvert: null,
       loaded: false,
-      // sellers: []
     };
     this.handleAdvertSubmit = this.handleAdvertSubmit.bind(this);
   }
@@ -22,11 +21,6 @@ class AdvertContainer extends React.Component {
       .then(result => {
         this.setState({ adverts: result._embedded.adverts, loaded: true });
       });
-    // fetch('http://localhost:8080/sellers') 
-    //   .then(res => res.json())
-    //   .then(result => {
-    //     this.setState({sellers: result._embedded.sellers})
-    //   })
   }
 
   handleClick = id => {
@@ -39,7 +33,6 @@ class AdvertContainer extends React.Component {
   };
 
   handleAdvertSubmit(advert){
-    // advert.id = Date.now();
     const updatedAdverts = [...this.state.adverts, advert]
     this.setState({adverts: updatedAdverts})
   }
