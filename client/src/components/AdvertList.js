@@ -2,7 +2,7 @@ import React from 'react';
 import Advert from './Advert';
 
 class AdvertList extends React.Component {
-  render() {
+  render() {    
     return (
       <ul>
         {this.props.adverts.map(advert => (

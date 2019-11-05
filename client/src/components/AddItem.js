@@ -1,36 +1,115 @@
 import React from 'react';
 
-const AddItem = () => {
 
-    handleSubmit(event) {
-        
+class AddItem extends React.Component {
+
+    constructor(props){
+    super(props);
+    this.state = {
+        title: '',
+        category: '',
+        description: '',
+        image: '',
+        price: '',
+        seller: 'http://localhost:8080/sellers/1'
+    }
+    
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleCategoryChange = this.handleCategoryChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
+    this.handlePriceChange = this.handlePriceChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    
+
     }
 
-    return (
-        <>
-        <form onSubmit={this.handleSubmit}>
-            <label for="item_title">Item Title</label>
-            <input type="text" name="item_title"></input>
 
-            <label for="category">Category</label>
-            <select name="category">
-                <option>{category}</option>
-            </select>
 
-            <label for="description">Description</label>
-            <input type="text" name="description"></input>
+    handleTitleChange(event) {
+        this.setState({
+            title: event.target.value
+        })     
+    }
 
-            <label for="image">Image</label>
-            <input name="image" type="image"></input>
+    handleCategoryChange(event) {
+        this.setState({
+            category: event.target.value
+        })     
+    }
 
-            <label for="price">Price</label>
-            <input name="price" type="number"></input>
+    handleDescriptionChange(event) {
+        this.setState({
+            description: event.target.value
+        })     
+    }
 
-            <input type="submit" value="Submit" />
+    handleImageChange(event) {
+        this.setState({
+            image: event.target.value
+        })     
+    }
 
-        </form>
-        </>
-    )
+    handlePriceChange(event) {
+        this.setState({
+            price: event.target.value
+        })     
+    }
+
+    handleSubmit(event){
+        event.preventDefault();
+        fetch('http://localhost:8080/adverts', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            title: this.state.title,
+            description: this.state.description,
+            price: this.state.price,
+            seller: this.state.seller
+          })
+      })
+      .then(res => res.json())
+      .then(() => this.props.onAdvertSubmit())
+        // const title = this.state.title.trim();
+        // const description = this.state.description.trim();
+        // const price = this.state.price.trim();
+        // const seller = this.state.seller();
+        // if (!title || !description || !price) {
+        //     return
+        //   }
+        // this.props.onAdvertSubmit({title: title, description: description, price: price})
+        
+        this.setState({title: '', description: '', price: ''});
+    }
+
+
+
+
+
+
+    render() {
+        return (
+            <>
+                <form onSubmit={this.handleSubmit}>
+                  <label htmlFor="title">Enter title</label>
+                  <input id="title" name="title" value={this.state.title} onChange={this.handleTitleChange} type="text"/>
+                  
+
+                  <label htmlFor="description">Enter description</label>
+                  <input id="description" name="description" value={this.state.description} onChange={this.handleDescriptionChange} type="text"/>
+
+                  <label htmlFor="price">Enter price</label>
+                  <input id="price" name="price" value={this.state.price} onChange={this.handlePriceChange} type="number"/>
+
+                  <button className="submitAdvert" type="submit">Send data!</button>
+                </form>
+            </>
+        );
+    }
 }
 
 export default AddItem;
+

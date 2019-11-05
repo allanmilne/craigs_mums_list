@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Advert = ({ advert, handleClick }) => {
+  console.log(advert);
+  
   return (
     <>
       <p>Item Title: {advert.title}</p>
