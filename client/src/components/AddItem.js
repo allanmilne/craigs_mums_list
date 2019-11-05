@@ -1,4 +1,5 @@
 import React from 'react';
+import './component_style.css'
 
 class AddItem extends React.Component {
   constructor(props) {
@@ -70,12 +71,15 @@ class AddItem extends React.Component {
   render() {
     return (
       <div className="container">
+        <div class="row">
+          <h1 class="form-heading">Create a new listing</h1>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="row">
-            <div className="col">
+            <div className="col-4">
               <label htmlFor="title">Enter title</label>
             </div>
-            <div className="col">
+            <div className="col-4">
               <input
                 id="title"
                 name="title"
@@ -86,10 +90,10 @@ class AddItem extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-4">
               <label htmlFor="image">Enter Image Link</label>
             </div>
-            <div className="col">
+            <div className="col-4">
               <input
                 id="image"
                 name="image"
@@ -100,10 +104,10 @@ class AddItem extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-4">
               <label htmlFor="category">Enter title</label>
             </div>
-            <div className="col">
+            <div className="col-4">
               <select
                 onChange={this.handleCategoryChange}
                 value={this.state.category}
@@ -118,10 +122,10 @@ class AddItem extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-4">
               <label htmlFor="description">Enter description</label>
             </div>
-            <div className="col">
+            <div className="col-4">
               <input
                 id="description"
                 name="description"
@@ -132,10 +136,10 @@ class AddItem extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-4">
               <label htmlFor="price">Enter price</label>
             </div>
-            <div className="col">
+            <div className="col-4">
               <input
                 id="price"
                 name="price"
@@ -146,7 +150,7 @@ class AddItem extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-7">
               <button className="submitAdvert" type="submit">
                 Send data!
               </button>
