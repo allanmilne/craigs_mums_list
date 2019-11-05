@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AdvertContainer from './AdvertContainer';
+import AdvertContainer from './adverts/AdvertContainer';
 
 class MyAdverts extends Component {
   constructor() {

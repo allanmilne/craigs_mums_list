@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <Link to="/home" class="navbar-brand">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <Link to="/home" className="navbar-brand">
         <Logo width="30" height="30" alt="" />
       </Link>
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNavAltMarkup"
@@ -17,20 +17,20 @@ const Navbar = () => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <Link to="/home" class="nav-item nav-link active">
-            Home <span class="sr-only">(current)</span>
+      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div className="navbar-nav">
+          <Link to="/home" className="nav-item nav-link active">
+            Home <span className="sr-only">(current)</span>
           </Link>
-          <Link to="/watchlist" class="nav-item nav-link">
+          <Link to="/watchlist" className="nav-item nav-link">
             Watchlist
           </Link>
-          <Link to="/my-ads" class="nav-item nav-link">
+          <Link to="/my-ads" className="nav-item nav-link">
             My Ads
           </Link>
-          <Link to="/settings" class="nav-item nav-link">
+          <Link to="/settings" className="nav-item nav-link">
             Settings
           </Link>
         </div>

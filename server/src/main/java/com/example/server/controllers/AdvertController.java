@@ -20,9 +20,4 @@ public class AdvertController {
 
     @Autowired
     SellerRepository sellerRepository;
-
-//    @GetMapping(value = "/{id}")
-//    public Optional<Advert> getAdvert(@PathVariable Long id){
-//        return advertRepository.findById(id);
-//    }
 }

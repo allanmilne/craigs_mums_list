@@ -20,10 +20,4 @@ public class SellerController {
 
     @Autowired
     SellerRepository sellerRepository;
-
-//    @GetMapping(value = "/{id}")
-//    public Optional<Seller> getSeller(@PathVariable Long id){
-//        return sellerRepository.findById(id);
-//    }
-
 }

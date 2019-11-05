@@ -1,7 +1,6 @@
 import React from 'react';
 
 const AdvertDetail = ({ selectedAdvert }) => {
-  // if (!selectedAdvert) return null;
   return (
     <div>
       <p>{selectedAdvert.title}</p>
