@@ -13,7 +13,7 @@ class AdvertContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/adverts')
+    fetch(this.props.url)
       .then(res => res.json())
       .then(result => {
         this.setState({ adverts: result._embedded.adverts, loaded: true });
@@ -32,7 +32,6 @@ class AdvertContainer extends React.Component {
   render() {
     return (
       <>
-        <div>Adverts</div>
         {this.state.loaded ? (
           <AdvertList
             adverts={this.state.adverts}
