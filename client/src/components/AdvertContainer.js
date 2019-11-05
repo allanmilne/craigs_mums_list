@@ -32,8 +32,6 @@ class AdvertContainer extends React.Component {
   };
 
   handleAdvertSubmit(){
-    // const updatedAdverts = [...this.state.adverts, advert]
-    // this.setState({adverts: updatedAdverts})
     fetch('http://localhost:8080/adverts')
       .then(res => res.json())
       .then(result => {

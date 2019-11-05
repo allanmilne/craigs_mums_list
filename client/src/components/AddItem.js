@@ -73,15 +73,6 @@ class AddItem extends React.Component {
       })
       .then(res => res.json())
       .then(() => this.props.onAdvertSubmit())
-        // const title = this.state.title.trim();
-        // const description = this.state.description.trim();
-        // const price = this.state.price.trim();
-        // const seller = this.state.seller();
-        // if (!title || !description || !price) {
-        //     return
-        //   }
-        // this.props.onAdvertSubmit({title: title, description: description, price: price})
-        
         this.setState({title: '', description: '', price: ''});
     }
 
