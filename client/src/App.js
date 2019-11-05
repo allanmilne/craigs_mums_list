@@ -10,8 +10,8 @@ function App() {
     <Router>
       <>
         <Navbar />
-        <Route path="/" component={Home} />
-        <AdvertContainer />
+        <Route path="/home" component={Home} />
+        <Route path="/my-ads" component={AdvertContainer} />
       </>
     </Router>
   );
