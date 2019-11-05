@@ -81,7 +81,34 @@ class AddItem extends React.Component {
                   type="text"
                 />
               </div>
+            </div>
 
+            <div class="row">
+              <div claass="col">
+                <select value={this.state.category} onChange={this.handleCategoryChange}>
+                  <option>Automobiles</option>
+                  <option>Electronics</option>
+                  <option>Home</option>
+                  <option>Freebies</option>
+                  <option>Appliances</option>
+                  <option>Toys</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label htmlFor="image">Enter Image URL</label>
+              </div>
+              <div class="col">
+                <input
+                  id="image"
+                  name="image"
+                  value={this.state.image}
+                  onChange={this.handleImageChange}
+                  type="text"
+                />
+              </div>
             </div>
             
             <div class="row">
