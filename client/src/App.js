@@ -3,7 +3,7 @@ import AdvertContainer from './components/AdvertContainer';
 import Navbar from './components/NavBar';
 import Home from './components/Home.js';
 
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         <Navbar />
         <Route path="/home" component={Home} />
         <Route path="/my-ads" component={AdvertContainer} />
+        <Redirect from="/" to="/home" />
       </>
     </Router>
   );
