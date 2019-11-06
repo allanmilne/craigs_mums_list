@@ -9,7 +9,11 @@ class AdvertList extends React.Component {
         <div className="row">
           {this.props.adverts.map(advert => (
             <div className="col-lg-4" key={advert.id}>
-              <Advert advert={advert} handleClick={this.props.handleClick} />
+              <Advert
+                advert={advert}
+                handleClick={this.props.handleClick}
+                embedded={this.props.embedded}
+              />
             </div>
           ))}
         </div>

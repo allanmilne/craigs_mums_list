@@ -24,8 +24,8 @@ const Navbar = () => {
           <Link to="/home" className="nav-item nav-link active">
             Home <span className="sr-only">(current)</span>
           </Link>
-          <Link to="/watchlist" className="nav-item nav-link">
-            Watchlist
+          <Link to="/search" className="nav-item nav-link">
+            Search
           </Link>
           <Link to="/my-ads" className="nav-item nav-link">
             My Ads

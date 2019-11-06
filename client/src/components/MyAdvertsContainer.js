@@ -13,7 +13,8 @@ class AdvertContainer extends React.Component {
       selectedAdvert: null,
       url:
         'http://localhost:8080/adverts/search/findAdvertBySellerId?sellerId=1',
-      _isLoaded: false
+      _isLoaded: false,
+      embedded: true
     };
   }
 
@@ -54,11 +55,15 @@ class AdvertContainer extends React.Component {
           <AdvertList
             adverts={this.state.adverts}
             handleClick={this.handleClick}
+            embedded={this.state.embedded}
           />
         ) : (
           <p>Loading</p>
         )}
-        <AdvertDetail selectedAdvert={this.state.selectedAdvert} />
+        <AdvertDetail
+          selectedAdvert={this.state.selectedAdvert}
+          embedded={this.state.embedded}
+        />
       </>
     );
   }
