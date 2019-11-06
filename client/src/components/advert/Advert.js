@@ -6,10 +6,10 @@ const Advert = ({ advert, handleClick }) => {
   return (
     <>
       <div class="card">
-        <img src={advert.image} />
+      <img src={`/images/${advert.image}`}/>
         <div class="card-body">
           <p>Item Title: {advert.title}</p>
-          <p>Item Price: {advert.price}</p>
+          <p>Item Price: £{advert.price}</p>
           <p>Item Location: {advert._embedded.seller.location}</p>
           <button
             onClick={event => handleClick(event.target.value)}
