@@ -1,15 +1,16 @@
 import React from 'react';
+import './component_style.css'
 
 class AddItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
-      category: '',
       description: '',
-      image: '',
       price: '',
-      seller: 'http://localhost:8080/sellers/1'
+      seller: 'http://localhost:8080/sellers/1',
+      image: '',
+      category: 'AUTOMOBILES'
     };
   }
 
@@ -43,7 +44,7 @@ class AddItem extends React.Component {
     });
   };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     fetch('http://localhost:8080/adverts', {
       method: 'POST',
@@ -55,49 +56,116 @@ class AddItem extends React.Component {
         title: this.state.title,
         description: this.state.description,
         price: this.state.price,
-        seller: this.state.seller
+        seller: this.state.seller,
+        image: this.state.image,
+        category: this.state.category
       })
     })
-      .then(res => res.json()) //TODO Log and error and only overwrite the state values when we get a success code.
-      .then(this.setState({ title: '', description: '', price: '' }));
-  }
+      .then(res => res.json())
+      .then(this.props.getData)
+      .then(
+        this.setState({
+          title: '',
+          description: '',
+          price: '',
+          image: '',
+          category: 'AUTOMOBILES'
+        })
+      );
+  };
 
   render() {
     return (
-      <>
+      <div className="container">
+        <div class="row">
+          <div class="col-10">
+            <h1 class="form-heading">Create a new listing</h1>
+          </div>
+        </div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="title">Enter title</label>
-          <input
-            id="title"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleTitleChange}
-            type="text"
-          />
-
-          <label htmlFor="description">Enter description</label>
-          <input
-            id="description"
-            name="description"
-            value={this.state.description}
-            onChange={this.handleDescriptionChange}
-            type="text"
-          />
-
-          <label htmlFor="price">Enter price</label>
-          <input
-            id="price"
-            name="price"
-            value={this.state.price}
-            onChange={this.handlePriceChange}
-            type="number"
-          />
-
-          <button className="submitAdvert" type="submit">
-            Send data!
-          </button>
+          <div className="row">
+            <div className="col-5">
+              <label htmlFor="title">Enter title</label>
+            </div>
+            <div className="col-5">
+              <input
+                id="title"
+                name="title"
+                value={this.state.title}
+                onChange={this.handleTitleChange}
+                type="text"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-5">
+              <label htmlFor="image">Enter Image Link</label>
+            </div>
+            <div className="col-5">
+              <input
+                id="image"
+                name="image"
+                value={this.state.image}
+                onChange={this.handleImageChange}
+                type="text"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-5">
+              <label htmlFor="category">Select category</label>
+            </div>
+            <div className="col-5">
+              <select
+                onChange={this.handleCategoryChange}
+                value={this.state.category}
+              >
+                <option>AUTOMOBILES</option>
+                <option>TOYS</option>
+                <option>HOME</option>
+                <option>ELECTRONICS</option>
+                <option>FREEBIES</option>
+                <option>APPLIANCES</option>
+              </select>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-5">
+              <label htmlFor="description">Enter description</label>
+            </div>
+            <div className="col-5">
+              <input
+                id="description"
+                name="description"
+                value={this.state.description}
+                onChange={this.handleDescriptionChange}
+                type="text"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-5">
+              <label htmlFor="price">Enter price</label>
+            </div>
+            <div className="col-5">
+              <input
+                id="price"
+                name="price"
+                value={this.state.price}
+                onChange={this.handlePriceChange}
+                type="number"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-8">
+              <button className="submitAdvert" type="submit">
+                Send data!
+              </button>
+            </div>
+          </div>
         </form>
-      </>
+      </div>
     );
   }
 }

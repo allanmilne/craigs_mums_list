@@ -4,13 +4,15 @@ import Advert from './Advert';
 class AdvertList extends React.Component {
   render() {    
     return (
-      <ul>
+      <div class="container">
+        <div class="row">
         {this.props.adverts.map(advert => (
-          <li key={advert.id}>
+          <div class="col-4" key={advert.id}>
             <Advert advert={advert} handleClick={this.props.handleClick} />
-          </li>
+          </div>
         ))}
-      </ul>
+        </div>
+      </div>
     );
   }
 }
