@@ -55,15 +55,21 @@ class AddItem extends React.Component {
         title: this.state.title,
         description: this.state.description,
         price: this.state.price,
-        seller: this.state.seller
-        // image: this.state.image,
-        // category: this.state.category
+        seller: this.state.seller,
+        image: this.state.image,
+        category: this.state.category
       })
     })
       .then(res => res.json())
       .then(() => this.props.getData())
       .then(
-        this.setState({ title: '', description: '', price: '', image: '' })
+        this.setState({
+          title: '',
+          description: '',
+          price: '',
+          image: '',
+          category: ''
+        })
       );
   };
 
