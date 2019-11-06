@@ -6,11 +6,11 @@ class AddItem extends React.Component {
     super(props);
     this.state = {
       title: '',
-      category: '',
       description: '',
-      image: '',
       price: '',
-      seller: 'http://localhost:8080/sellers/1'
+      seller: 'http://localhost:8080/sellers/1',
+      image: '',
+      category: 'AUTOMOBILES'
     };
   }
 
@@ -56,15 +56,21 @@ class AddItem extends React.Component {
         title: this.state.title,
         description: this.state.description,
         price: this.state.price,
-        seller: this.state.seller
-        // image: this.state.image,
-        // category: this.state.category
+        seller: this.state.seller,
+        image: this.state.image,
+        category: this.state.category
       })
     })
       .then(res => res.json())
-      .then(() => this.props.getData())
+      .then(this.props.getData)
       .then(
-        this.setState({ title: '', description: '', price: '', image: '' })
+        this.setState({
+          title: '',
+          description: '',
+          price: '',
+          image: '',
+          category: 'AUTOMOBILES'
+        })
       );
   };
 
@@ -107,19 +113,19 @@ class AddItem extends React.Component {
           </div>
           <div className="row">
             <div className="col-5">
-              <label htmlFor="category">Enter title</label>
+              <label htmlFor="category">Select category</label>
             </div>
             <div className="col-5">
               <select
                 onChange={this.handleCategoryChange}
                 value={this.state.category}
               >
-                <option>Automobiles</option>
-                <option>Toys</option>
-                <option>Home</option>
-                <option>Electronics</option>
-                <option>Freebies</option>
-                <option>Appliances</option>
+                <option>AUTOMOBILES</option>
+                <option>TOYS</option>
+                <option>HOME</option>
+                <option>ELECTRONICS</option>
+                <option>FREEBIES</option>
+                <option>APPLIANCES</option>
               </select>
             </div>
           </div>
