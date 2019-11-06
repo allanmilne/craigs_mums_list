@@ -58,7 +58,8 @@ class AddItem extends React.Component {
         price: this.state.price,
         seller: this.state.seller,
         image: this.state.image,
-        category: this.state.category
+        category: this.state.category,
+        dateListed: Date.now()
       })
     })
       .then(res => res.json())
