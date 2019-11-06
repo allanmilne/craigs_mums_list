@@ -13,7 +13,7 @@ class AdvertContainer extends React.Component {
       selectedAdvert: null,
       url:
         'http://localhost:8080/adverts/search/findAdvertBySellerId?sellerId=1',
-      _isloaded: false
+      _isLoaded: false
     };
   }
 
@@ -27,12 +27,12 @@ class AdvertContainer extends React.Component {
   }
 
   getData = () => {
-    this.setState({ _isloaded: false });
+    this.setState({ _isLoaded: false });
     fetch(this.state.url)
       .then(res => res.json())
       .then(data => {
         if (this._isMounted) {
-          this.setState({ adverts: data._embedded.adverts, loaded: true });
+          this.setState({ adverts: data._embedded.adverts, _isLoaded: true });
         }
       });
   };
@@ -50,7 +50,7 @@ class AdvertContainer extends React.Component {
     return (
       <>
         <AddItem getData={this.getData} />
-        {this.state.loaded ? (
+        {this.state._isLoaded ? (
           <AdvertList
             adverts={this.state.adverts}
             handleClick={this.handleClick}
