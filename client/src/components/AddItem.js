@@ -161,7 +161,7 @@ class AddItem extends React.Component {
           <div className="row">
             <div className="col-8">
               <button className="submitAdvert" type="submit">
-                Send data!
+                List now!
               </button>
             </div>
           </div>
