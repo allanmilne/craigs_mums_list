@@ -22,13 +22,13 @@ const AdvertDetail = ({ selectedAdvert }) => {
               <img src={`/images/${selectedAdvert.image}`} alt=""></img>
             </div>
             <div className="col-6">
-              <p>Description: {selectedAdvert.description}</p>
-              <p>Price: £{selectedAdvert.price}</p>
-              <p>Date Listed: {selectedAdvert.dateListed}</p>
-              <p>Category: {selectedAdvert.category}</p>
-              <p>Location: {selectedAdvert._embedded.seller.location}</p>
-              <p>Contact: {selectedAdvert._embedded.seller.firstName}</p>
-              <p>Phone: {selectedAdvert._embedded.seller.phoneNumber}</p>
+              <p><b>Description: </b>{selectedAdvert.description}</p>
+              <p><b>Price: </b>£{selectedAdvert.price}</p>
+              <p><b>Date Listed: </b>{selectedAdvert.dateListed}</p>
+              <p><b>Location: </b>{selectedAdvert._embedded.seller.location}</p>
+              <p><b>Contact: </b>{selectedAdvert._embedded.seller.firstName}</p>
+              <p><b>Phone: </b>{selectedAdvert._embedded.seller.phoneNumber}</p>
+              <p><b>Category: </b>{selectedAdvert.category}</p>
             </div>
           </div>
         </div>

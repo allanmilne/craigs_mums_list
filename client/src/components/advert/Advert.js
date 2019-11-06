@@ -7,9 +7,9 @@ const Advert = ({ advert, handleClick }) => {
       <div className="card">
         <img src={`/images/${advert.image}`} alt="" />
         <div className="card-body">
-          <p>Item Title: {advert.title}</p>
-          <p>Item Price: £{advert.price}</p>
-          <p>Item Location: {advert._embedded.seller.location}</p>
+          <p><b>Item Title: </b> {advert.title}</p>
+          <p><b>Item Price: </b> £{advert.price}</p>
+          <p><b>Item Location: </b> {advert._embedded.seller.location}</p>
           <button
             data-toggle="modal"
             data-target="#exampleModal"
