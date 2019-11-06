@@ -12,6 +12,8 @@ const Advert = ({ advert, handleClick }) => {
           <p>Item Price: {advert.price}</p>
           <p>Item Location: {advert._embedded.seller.location}</p>
           <button
+            data-toggle="modal" 
+            data-target="#exampleModal"
             onClick={event => handleClick(event.target.value)}
             value={advert.id}
           >
