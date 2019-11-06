@@ -7,7 +7,9 @@ const Advert = ({ advert, handleClick }) => {
     <>
       <div className="card">  
         <div className="card-body">
-          <img src={url} alt="¯\_(ツ)_/¯"/>
+          <div className="card-img-wrapper">
+            <img src={url} alt="¯\_(ツ)_/¯"/>
+          </div>
           <p><b>Item Title: </b> {advert.title}</p>
           <p><b>Item Price: </b> £{advert.price}</p>
           <p><b>Item Location: </b> {advert._embedded.seller.location}</p>

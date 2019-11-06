@@ -32,16 +32,33 @@ form .row {
     margin-top: 50px;
 }
 
-.card img {
-    height: 300px;
+.card {
+    min-height: 520px;
 }
 
-.selected-advert img {
-    height: 90%;
-    width: 90%;
-    border: 1px solid black;
+.card .card-img-wrapper {
+    height: 300px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.card-body img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .selected-advert {
     margin-top: 50px;
+}
+
+.advert-list-container .row .col-lg-4 {
+    margin-bottom: 30px;
+}
+
+.card button {
+    display: block;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
