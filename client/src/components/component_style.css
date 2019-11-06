@@ -31,3 +31,7 @@ form .row {
 .card img {
     height: 200px;
 }
+
+.selected-advert img {
+    height: 200px;
+}
