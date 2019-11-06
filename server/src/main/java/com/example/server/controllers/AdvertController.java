@@ -21,7 +21,7 @@ public class AdvertController {
     SellerRepository sellerRepository;
 
     @GetMapping(value = "/custom-search")
-    public List<Advert> getCustomSearchResults(@RequestParam Long id, @RequestParam String title, @RequestParam Category category) {
-        return advertRepository.customSearchIgnoreCase(id, title, category);
+    public List<Advert> getCustomSearchResults(@RequestParam String title, @RequestParam Category category) {
+        return advertRepository.customSearchIgnoreCase(title, category);
     }
 }
