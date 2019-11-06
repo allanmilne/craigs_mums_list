@@ -51,7 +51,7 @@ public class DataLoader implements ApplicationRunner {
         Advert advert5 = new Advert("table.png", "Lovely table complete with legs", "Magic Table", Category.FREEBIES, 0, new Date(), false, seller1);
         advertRepository.save(advert5);
 
-        Advert advert6 = new Advert("iphone6.png", "iPhone 6 with 64gb memory", "iPhone 6", Category.ELECTRONICS, 90, new Date(), false, seller1);
+        Advert advert6 = new Advert("iphone6.png", "iPhone 6 with 64gb memory, minor scratches", "iPhone 6 - great condition", Category.ELECTRONICS, 90, new Date(), false, seller1);
         advertRepository.save(advert6);
 
     }
