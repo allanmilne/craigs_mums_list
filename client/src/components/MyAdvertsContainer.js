@@ -4,34 +4,36 @@ import AdvertDetail from './advert/AdvertDetail.js';
 import AddItem from './AddItem.js';
 
 class AdvertContainer extends React.Component {
+  _isMounted = false;
+
   constructor() {
     super();
     this.state = {
       adverts: [],
       selectedAdvert: null,
-      loaded: false,
       url:
-        'http://localhost:8080/adverts/search/findAdvertBySellerId?sellerId=1'
+        'http://localhost:8080/adverts/search/findAdvertBySellerId?sellerId=1',
+      _isLoaded: false
     };
   }
 
   componentDidMount() {
+    this._isMounted = true;
     this.getData();
   }
 
-  setLoading = value => {
-    this.setState({
-      loading: value
-    });
-  };
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
 
   getData = () => {
-    this.setLoading(true);
+    this.setState({ _isLoaded: false });
     fetch(this.state.url)
       .then(res => res.json())
       .then(data => {
-        this.setState({ adverts: data._embedded.adverts });
-        this.setLoading(false);
+        if (this._isMounted) {
+          this.setState({ adverts: data._embedded.adverts, _isLoaded: true });
+        }
       });
   };
 
@@ -48,10 +50,14 @@ class AdvertContainer extends React.Component {
     return (
       <>
         <AddItem getData={this.getData} />
-        <AdvertList
-          adverts={this.state.adverts}
-          handleClick={this.handleClick}
-        />
+        {this.state._isLoaded ? (
+          <AdvertList
+            adverts={this.state.adverts}
+            handleClick={this.handleClick}
+          />
+        ) : (
+          <p>Loading</p>
+        )}
         {this.state.selectedAdvert && (
           <AdvertDetail selectedAdvert={this.state.selectedAdvert} />
         )}

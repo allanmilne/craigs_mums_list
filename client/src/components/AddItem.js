@@ -1,4 +1,5 @@
 import React from 'react';
+import './component_style.css'
 
 class AddItem extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class AddItem extends React.Component {
       price: '',
       seller: 'http://localhost:8080/sellers/1',
       image: '',
-      category: ''
+      category: 'AUTOMOBILES'
     };
   }
 
@@ -56,8 +57,8 @@ class AddItem extends React.Component {
         description: this.state.description,
         price: this.state.price,
         seller: this.state.seller,
-        image: this.state.image
-        // category: this.state.category
+        image: this.state.image,
+        category: this.state.category
       })
     })
       .then(res => res.json())
@@ -68,7 +69,7 @@ class AddItem extends React.Component {
           description: '',
           price: '',
           image: '',
-          category: ''
+          category: 'AUTOMOBILES'
         })
       );
   };
@@ -76,12 +77,17 @@ class AddItem extends React.Component {
   render() {
     return (
       <div className="container">
+        <div class="row">
+          <div class="col-10">
+            <h1 class="form-heading">Create a new listing</h1>
+          </div>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="row">
-            <div className="col">
+            <div className="col-5">
               <label htmlFor="title">Enter title</label>
             </div>
-            <div className="col">
+            <div className="col-5">
               <input
                 id="title"
                 name="title"
@@ -92,10 +98,10 @@ class AddItem extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-5">
               <label htmlFor="image">Enter Image Link</label>
             </div>
-            <div className="col">
+            <div className="col-5">
               <input
                 id="image"
                 name="image"
@@ -106,10 +112,10 @@ class AddItem extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-5">
               <label htmlFor="category">Select category</label>
             </div>
-            <div className="col">
+            <div className="col-5">
               <select
                 onChange={this.handleCategoryChange}
                 value={this.state.category}
@@ -124,10 +130,10 @@ class AddItem extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-5">
               <label htmlFor="description">Enter description</label>
             </div>
-            <div className="col">
+            <div className="col-5">
               <input
                 id="description"
                 name="description"
@@ -138,10 +144,10 @@ class AddItem extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-5">
               <label htmlFor="price">Enter price</label>
             </div>
-            <div className="col">
+            <div className="col-5">
               <input
                 id="price"
                 name="price"
@@ -152,7 +158,7 @@ class AddItem extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-8">
               <button className="submitAdvert" type="submit">
                 Send data!
               </button>
