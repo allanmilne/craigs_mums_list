@@ -1,6 +1,7 @@
 import React from 'react';
 import AdvertList from './advert/AdvertList';
 import AdvertDetail from './advert/AdvertDetail';
+import './component_style.css'
 
 class Home extends React.Component {
   _isMounted = false;
@@ -74,25 +75,46 @@ class Home extends React.Component {
     return (
       <>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            onChange={this.handleOnSearchTermChange}
-            placeholder="Search for..."
-          />
-          <label>
-            <select
-              defaultValue={this.state.searchCategory}
-              onChange={this.handleCategoryChange}
-            >
-              <option value="AUTOMOBILES">Automobiles</option>
-              <option value="ELECTRONICS">Electronics</option>
-              <option value="HOME">Home</option>
-              <option value="FREEBIES">Freebies</option>
-              <option value="APPLIANCES">Appliances</option>
-              <option value="TOYS">Toys</option>
-            </select>
-          </label>
-          <input type="submit" value="Submit" />
+          <div className="container">
+            <div className="row">
+              <div className="col-3">
+                <label>Search Term</label>
+              </div>
+              <div className="col-3">
+              <input
+                type="text"
+                onChange={this.handleOnSearchTermChange}
+                placeholder="Search for..."
+              />
+              </div>
+            </div>
+          <div className="row">
+            <div className="col-3">
+              <label>
+                Category
+              </label>
+            </div>
+            <div className="col-3">
+              <select
+                defaultValue={this.state.searchCategory}
+                onChange={this.handleCategoryChange}
+                className="dropdown"
+              >
+                <option value="AUTOMOBILES">Automobiles</option>
+                <option value="ELECTRONICS">Electronics</option>
+                <option value="HOME">Home</option>
+                <option value="FREEBIES">Freebies</option>
+                <option value="APPLIANCES">Appliances</option>
+                <option value="TOYS">Toys</option>
+              </select>
+            </div>
+          </div>   
+            <div className="row">
+              <div className="col">    
+                <input type="submit" value="Submit" className="btn btn-secondary searchButton" />
+              </div> 
+            </div> 
+          </div>
         </form>
         {this.state._isLoaded ? (
           <AdvertList

@@ -160,7 +160,7 @@ class AddItem extends React.Component {
           </div>
           <div className="row">
             <div className="col-8">
-              <button className="submitAdvert" type="submit">
+              <button className="submitAdvert btn btn-secondary" type="submit">
                 List now!
               </button>
             </div>

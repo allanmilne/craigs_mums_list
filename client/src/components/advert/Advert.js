@@ -21,6 +21,7 @@ const Advert = ({ advert, handleClick, embedded }) => {
               : advert.seller.location}
           </p>
           <button
+            className="btn btn-secondary"
             data-toggle="modal"
             data-target="#exampleModal"
             onClick={event => handleClick(event.target.value)}
