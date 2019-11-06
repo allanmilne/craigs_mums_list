@@ -74,13 +74,14 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <form className="searchForm" onSubmit={this.handleSubmit}>
           <div className="container">
+            <h1>Search for an item</h1>
             <div className="row">
-              <div className="col-3">
+              <div className="col-6">
                 <label>Search Term</label>
               </div>
-              <div className="col-3">
+              <div className="col-6">
               <input
                 type="text"
                 onChange={this.handleOnSearchTermChange}
@@ -89,12 +90,12 @@ class Home extends React.Component {
               </div>
             </div>
           <div className="row">
-            <div className="col-3">
+            <div className="col-6">
               <label>
                 Category
               </label>
             </div>
-            <div className="col-3">
+            <div className="col-6">
               <select
                 defaultValue={this.state.searchCategory}
                 onChange={this.handleCategoryChange}

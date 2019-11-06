@@ -63,8 +63,54 @@ form .row {
     width: 40%;
 }
 
-/* .searchButton {
+.searchButton {
     margin-left: auto;
     margin-right: auto;
     display: block;
-} */
+}
+
+@media only screen and (min-width: 800px) {
+    .searchForm {
+        margin-left: auto;
+        margin-right: auto;
+        width: 35%;
+    }
+}
+
+.searchForm h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.searchForm .row {
+    margin-bottom: 40px;
+}
+
+.jumbotron{
+    text-align: center;
+}
+
+.jumbo-img
+{
+    margin-bottom: 0px;
+    opacity: 0.3;
+    color: #fff;
+    background: #000 url("https://data.world/wp-content/uploads/2018/06/Amazon.jpeg") top center no-repeat;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    overflow: hidden;
+    position:absolute;
+    top: 57.92px;
+    left:0;
+    z-index:1;
+}
+
+.jumbotron .container {
+    position:relative;
+    z-index:2;
+  }
+
+.jumbotron {
+      background: none;
+}
