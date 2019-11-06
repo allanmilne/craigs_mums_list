@@ -1,3 +1,7 @@
+#root {
+    position: relative;
+}
+
 @media only screen and (min-width: 800px) {
     form {
         width: 55%;
@@ -29,9 +33,15 @@ form .row {
 }
 
 .card img {
-    height: 200px;
+    height: 300px;
 }
 
 .selected-advert img {
-    height: 200px;
+    height: 90%;
+    width: 90%;
+    border: 1px solid black;
+}
+
+.selected-advert {
+    margin-top: 50px;
 }

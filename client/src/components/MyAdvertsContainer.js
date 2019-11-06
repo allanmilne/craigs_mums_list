@@ -58,9 +58,7 @@ class AdvertContainer extends React.Component {
         ) : (
           <p>Loading</p>
         )}
-        {this.state.selectedAdvert && (
-          <AdvertDetail selectedAdvert={this.state.selectedAdvert} />
-        )}
+        <AdvertDetail selectedAdvert={this.state.selectedAdvert} />
       </>
     );
   }

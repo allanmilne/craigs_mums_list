@@ -1,5 +1,5 @@
 import React from 'react';
-import './component_style.css'
+import './component_style.css';
 
 class AddItem extends React.Component {
   constructor(props) {
@@ -58,7 +58,8 @@ class AddItem extends React.Component {
         price: this.state.price,
         seller: this.state.seller,
         image: this.state.image,
-        category: this.state.category
+        category: this.state.category,
+        dateListed: Date.now()
       })
     })
       .then(res => res.json())
@@ -77,9 +78,9 @@ class AddItem extends React.Component {
   render() {
     return (
       <div className="container">
-        <div class="row">
-          <div class="col-10">
-            <h1 class="form-heading">Create a new listing</h1>
+        <div className="row">
+          <div className="col-10">
+            <h1 className="form-heading">Create a new listing</h1>
           </div>
         </div>
         <form onSubmit={this.handleSubmit}>
@@ -160,7 +161,7 @@ class AddItem extends React.Component {
           <div className="row">
             <div className="col-8">
               <button className="submitAdvert" type="submit">
-                Send data!
+                List now!
               </button>
             </div>
           </div>

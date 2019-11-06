@@ -2,15 +2,15 @@ import React from 'react';
 import Advert from './Advert';
 
 class AdvertList extends React.Component {
-  render() {    
+  render() {
     return (
-      <div class="container">
-        <div class="row">
-        {this.props.adverts.map(advert => (
-          <div class="col-4" key={advert.id}>
-            <Advert advert={advert} handleClick={this.props.handleClick} />
-          </div>
-        ))}
+      <div className="container">
+        <div className="row">
+          {this.props.adverts.map(advert => (
+            <div className="col-4" key={advert.id}>
+              <Advert advert={advert} handleClick={this.props.handleClick} />
+            </div>
+          ))}
         </div>
       </div>
     );
