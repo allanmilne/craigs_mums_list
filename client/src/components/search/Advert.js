@@ -6,7 +6,7 @@ const Advert = ({ advert, handleClick }) => {
   return (
     <>
       <div class="card">
-        <img src={advert.image} />
+        <img src={`/images/${advert.image}`} alt="" />
         <div class="card-body">
           <p>Item Title: {advert.title}</p>
           <p>Item Price: {advert.price}</p>

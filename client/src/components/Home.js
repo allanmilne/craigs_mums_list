@@ -10,7 +10,7 @@ class Home extends React.Component {
     this.state = {
       adverts: [],
       searchTerm: "",
-      searchCategory: "",
+      searchCategory: "AUTOMOBILE",
       _isLoaded: false,
       selectedAdvert: null
     };
@@ -26,7 +26,7 @@ class Home extends React.Component {
     this.setState({
       searchCategory: event.target.value.toUpperCase()
     });
-  }
+  };
 
   getData = params => {
     this.setState({ _isLoaded: false });
@@ -40,9 +40,7 @@ class Home extends React.Component {
           });
         }
       })
-      .catch(
-        console.log("get data failed")
-      )
+      .catch(console.log("get data failed"));
   };
 
   handleClick = id => {
@@ -55,7 +53,7 @@ class Home extends React.Component {
   };
 
   createParams = () => {
-    return `id=1&title=${this.state.searchTerm}&category=${this.state.searchCategory}`;
+    return `title=${this.state.searchTerm}&category=${this.state.searchCategory}`;
   };
 
   handleSubmit = event => {
@@ -83,12 +81,14 @@ class Home extends React.Component {
           />
           <label>
             <select onChange={this.handleCategoryChange}>
-              <option value="automobiles">Automobiles</option>
-              <option value="electronics">Electronics</option>
-              <option value="home">Home</option>
-              <option value="freebies">Freebies</option>
-              <option value="appliances">Appliances</option>
-              <option value="toys">Toys</option>
+              <option selected searchCategory="automobiles">
+                Automobiles
+              </option>
+              <option searchCategory="electronics">Electronics</option>
+              <option searchCategory="home">Home</option>
+              <option searchCategory="freebies">Freebies</option>
+              <option searchCategory="appliances">Appliances</option>
+              <option searchCategory="toys">Toys</option>
             </select>
           </label>
           <input type="submit" value="Submit" />
@@ -98,9 +98,7 @@ class Home extends React.Component {
             adverts={this.state.adverts}
             handleClick={this.handleClick}
           />
-        ) : (
-          <p>Loading</p>
-        )}
+        ) : null}
         {this.state.selectedAdvert && (
           <AdvertDetail selectedAdvert={this.state.selectedAdvert} />
         )}

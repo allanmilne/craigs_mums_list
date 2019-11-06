@@ -8,7 +8,7 @@ const AdvertDetail = ({ selectedAdvert }) => {
     <div class="container selected-advert">
       <div class="row">
         <div class="col">
-          <img src={selectedAdvert.image}></img>
+          <img src={`/images/${selectedAdvert.image}`} alt=""></img>
         </div>
         <div class="col">
           <p>{selectedAdvert.title}</p>
