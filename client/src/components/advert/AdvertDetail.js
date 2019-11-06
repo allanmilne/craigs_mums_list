@@ -26,4 +26,6 @@ const AdvertDetail = ({ selectedAdvert }) => {
   );
 };
 
+
+
 export default AdvertDetail;
