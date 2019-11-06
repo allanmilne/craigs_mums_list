@@ -1,7 +1,7 @@
 import React from 'react';
 import '../component_style.css';
 
-const AdvertDetail = ({ selectedAdvert }) => {
+const AdvertDetail = ({ selectedAdvert, embedded }) => {
   const modalContent = selectedAdvert && (
     <div className="modal-content">
       <div className="modal-header">
@@ -35,15 +35,21 @@ const AdvertDetail = ({ selectedAdvert }) => {
               </p>
               <p>
                 <b>Location: </b>
-                {selectedAdvert._embedded.seller.location}
+                {embedded
+                  ? selectedAdvert._embedded.seller.location
+                  : selectedAdvert.seller.location}
               </p>
               <p>
                 <b>Contact: </b>
-                {selectedAdvert._embedded.seller.firstName}
+                {embedded
+                  ? selectedAdvert._embedded.seller.firstName
+                  : selectedAdvert.seller.firstName}
               </p>
               <p>
                 <b>Phone: </b>
-                {selectedAdvert._embedded.seller.phoneNumber}
+                {embedded
+                  ? selectedAdvert._embedded.seller.phoneNumber
+                  : selectedAdvert.seller.phoneNumber}
               </p>
               <p>
                 <b>Category: </b>
