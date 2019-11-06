@@ -101,12 +101,10 @@ class Home extends React.Component {
             embedded={this.state.embedded}
           />
         ) : null}
-        {this.state.selectedAdvert && (
-          <AdvertDetail
-            selectedAdvert={this.state.selectedAdvert}
-            embedded={this.state.embedded}
-          />
-        )}
+        <AdvertDetail
+          selectedAdvert={this.state.selectedAdvert}
+          embedded={this.state.embedded}
+        />
       </>
     );
   }
