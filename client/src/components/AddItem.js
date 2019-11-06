@@ -9,7 +9,7 @@ class AddItem extends React.Component {
       price: '',
       seller: 'http://localhost:8080/sellers/1',
       image: '',
-      category: ''
+      category: 'AUTOMOBILES'
     };
   }
 
@@ -56,8 +56,8 @@ class AddItem extends React.Component {
         description: this.state.description,
         price: this.state.price,
         seller: this.state.seller,
-        image: this.state.image
-        // category: this.state.category
+        image: this.state.image,
+        category: this.state.category
       })
     })
       .then(res => res.json())
@@ -68,7 +68,7 @@ class AddItem extends React.Component {
           description: '',
           price: '',
           image: '',
-          category: ''
+          category: 'AUTOMOBILES'
         })
       );
   };
