@@ -13,6 +13,7 @@ public interface AdvertRepository extends JpaRepository<Advert, Long> {
 
     List<Advert> findAdvertBySellerId(Long sellerId);
 
-    @Query("select a from Advert a join a.seller s where s.id <> :id and a.title like %:title% and a.category = :category")
+    // TODO Make the title search not case sensitive.
+    @Query("select a from Advert a join a.seller s where a.title like %:title%")
     List<Advert> customSearch(@Param("id") Long id, @Param("title") String title, @Param("category") Category category);
 }
