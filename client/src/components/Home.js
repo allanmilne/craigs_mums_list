@@ -1,6 +1,6 @@
-import React from "react";
-import AdvertList from "./search/AdvertList";
-import AdvertDetail from "./search/AdvertDetail";
+import React from 'react';
+import AdvertList from './search/AdvertList';
+import AdvertDetail from './search/AdvertDetail';
 
 class Home extends React.Component {
   _isMounted = false;
@@ -9,8 +9,8 @@ class Home extends React.Component {
     super(props);
     this.state = {
       adverts: [],
-      searchTerm: "",
-      searchCategory: "AUTOMOBILE",
+      searchTerm: '',
+      searchCategory: 'AUTOMOBILES',
       _isLoaded: false,
       selectedAdvert: null
     };
@@ -39,8 +39,7 @@ class Home extends React.Component {
             _isLoaded: true
           });
         }
-      })
-      .catch(console.log("get data failed"));
+      });
   };
 
   handleClick = id => {
@@ -80,15 +79,16 @@ class Home extends React.Component {
             placeholder="Search for..."
           />
           <label>
-            <select onChange={this.handleCategoryChange}>
-              <option selected searchCategory="automobiles">
-                Automobiles
-              </option>
-              <option searchCategory="electronics">Electronics</option>
-              <option searchCategory="home">Home</option>
-              <option searchCategory="freebies">Freebies</option>
-              <option searchCategory="appliances">Appliances</option>
-              <option searchCategory="toys">Toys</option>
+            <select
+              defaultValue={this.state.searchCategory}
+              onChange={this.handleCategoryChange}
+            >
+              <option value="AUTOMOBILES">Automobiles</option>
+              <option value="ELECTRONICS">Electronics</option>
+              <option value="HOME">Home</option>
+              <option value="FREEBIES">Freebies</option>
+              <option value="APPLIANCES">Appliances</option>
+              <option value="TOYS">Toys</option>
             </select>
           </label>
           <input type="submit" value="Submit" />

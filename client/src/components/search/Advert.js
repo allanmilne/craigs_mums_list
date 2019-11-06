@@ -1,13 +1,12 @@
 import React from 'react';
-import '../component_style.css'
+import '../component_style.css';
 
 const Advert = ({ advert, handleClick }) => {
-  
   return (
     <>
-      <div class="card">
+      <div className="card">
         <img src={`/images/${advert.image}`} alt="" />
-        <div class="card-body">
+        <div className="card-body">
           <p>Item Title: {advert.title}</p>
           <p>Item Price: {advert.price}</p>
           <p>Item Location: {advert.seller.location}</p>

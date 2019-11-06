@@ -2,15 +2,13 @@ import React from 'react';
 import '../component_style.css';
 
 const AdvertDetail = ({ selectedAdvert }) => {
-
-
   return (
-    <div class="container selected-advert">
-      <div class="row">
-        <div class="col">
+    <div className="container selected-advert">
+      <div className="row">
+        <div className="col">
           <img src={`/images/${selectedAdvert.image}`} alt=""></img>
         </div>
-        <div class="col">
+        <div className="col">
           <p>{selectedAdvert.title}</p>
           <p>Description: {selectedAdvert.description}</p>
           <p>Price: £{selectedAdvert.price}</p>

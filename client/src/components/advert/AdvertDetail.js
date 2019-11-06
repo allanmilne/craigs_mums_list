@@ -3,7 +3,7 @@ import '../component_style.css';
 
 const AdvertDetail = ({ selectedAdvert }) => {
   const modalContent = selectedAdvert && (
-    <div class="modal-content">
+    <div className="modal-content">
       <div className="modal-header">
         <h5 className="modal-title">{selectedAdvert.title}</h5>
         <button
@@ -22,13 +22,33 @@ const AdvertDetail = ({ selectedAdvert }) => {
               <img src={`/images/${selectedAdvert.image}`} alt=""></img>
             </div>
             <div className="col-6">
-              <p><b>Description: </b>{selectedAdvert.description}</p>
-              <p><b>Price: </b>£{selectedAdvert.price}</p>
-              <p><b>Date Listed: </b>{selectedAdvert.dateListed}</p>
-              <p><b>Location: </b>{selectedAdvert._embedded.seller.location}</p>
-              <p><b>Contact: </b>{selectedAdvert._embedded.seller.firstName}</p>
-              <p><b>Phone: </b>{selectedAdvert._embedded.seller.phoneNumber}</p>
-              <p><b>Category: </b>{selectedAdvert.category}</p>
+              <p>
+                <b>Description: </b>
+                {selectedAdvert.description}
+              </p>
+              <p>
+                <b>Price: </b>£{selectedAdvert.price}
+              </p>
+              <p>
+                <b>Date Listed: </b>
+                {selectedAdvert.dateListed}
+              </p>
+              <p>
+                <b>Location: </b>
+                {selectedAdvert._embedded.seller.location}
+              </p>
+              <p>
+                <b>Contact: </b>
+                {selectedAdvert._embedded.seller.firstName}
+              </p>
+              <p>
+                <b>Phone: </b>
+                {selectedAdvert._embedded.seller.phoneNumber}
+              </p>
+              <p>
+                <b>Category: </b>
+                {selectedAdvert.category}
+              </p>
             </div>
           </div>
         </div>
@@ -56,7 +76,5 @@ const AdvertDetail = ({ selectedAdvert }) => {
     </div>
   );
 };
-
-
 
 export default AdvertDetail;

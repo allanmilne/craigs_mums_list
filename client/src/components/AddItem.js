@@ -119,14 +119,14 @@ class AddItem extends React.Component {
             <div className="col-5">
               <select
                 onChange={this.handleCategoryChange}
-                value={this.state.category}
+                defaultValue={this.state.category}
               >
-                <option>AUTOMOBILES</option>
-                <option>TOYS</option>
-                <option>HOME</option>
-                <option>ELECTRONICS</option>
-                <option>FREEBIES</option>
-                <option>APPLIANCES</option>
+                <option value="AUTOMOBILES">Automobiles</option>
+                <option value="ELECTRONICS">Electronics</option>
+                <option value="HOME">Home</option>
+                <option value="FREEBIES">Freebies</option>
+                <option value="APPLIANCES">Appliances</option>
+                <option value="TOYS">Toys</option>
               </select>
             </div>
           </div>
