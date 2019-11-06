@@ -1,18 +1,20 @@
-import React from 'react';
+import React from "react";
+import AdvertList from "./search/AdvertList";
+import AdvertDetail from "./search/AdvertDetail";
 
 class Home extends React.Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     this.state = {
       adverts: [],
       searchTerm: "",
-      loaded: false
+      searchCategory: "",
+      _isLoaded: false,
+      selectedAdvert: null
     };
   }
-
-  // const options = adverts.map((advert, id) => {
-  //   return <option value={advert} key={id}>{advert.category}</option>
-  // })
 
   handleOnSearchTermChange = event => {
     this.setState({
@@ -20,26 +22,55 @@ class Home extends React.Component {
     });
   };
 
+  handleCategoryChange = event => {
+    this.setState({
+      searchCategory: event.target.value.toUpperCase()
+    });
+  }
+
+  getData = params => {
+    this.setState({ _isLoaded: false });
+    fetch(`http://localhost:8080/adverts/custom-search?${params}`)
+      .then(res => res.json())
+      .then(searchResult => {
+        if (this._isMounted) {
+          this.setState({
+            adverts: searchResult,
+            _isLoaded: true
+          });
+        }
+      })
+      .catch(
+        console.log("get data failed")
+      )
+  };
+
+  handleClick = id => {
+    const advert = this.state.adverts.find(
+      advert => advert.id === parseInt(id)
+    );
+    this.setState({
+      selectedAdvert: advert
+    });
+  };
+
+  createParams = () => {
+    return `id=1&title=${this.state.searchTerm}&category=${this.state.searchCategory}`;
+  };
+
   handleSubmit = event => {
     event.preventDefault();
-    this.state.adverts.map(advert, id) => {
-      if (advert.includes(this.state.searchTerm)){
-        return advert
-      }
-    }
-  }
+    const params = this.createParams();
+    this.getData(params);
+  };
 
   componentDidMount() {
-    fetch('http://localhost:8080/adverts/search/findAdvertBySellerId?sellerId=1')
-      .then(res => res.json())
-      .then(result => {
-        this.setState({ adverts: result._embedded.adverts, loaded: true });
-      });
+    this._isMounted = true;
   }
 
-  // function handleSubmit(event) {
-  //   event.preventDefault()
-  // }
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
 
   render() {
     return (
@@ -50,8 +81,8 @@ class Home extends React.Component {
             onChange={this.handleOnSearchTermChange}
             placeholder="Search for..."
           />
-          {/* <label>
-            <select value={this.state.value}>
+          <label>
+            <select onChange={this.handleCategoryChange}>
               <option value="automobiles">Automobiles</option>
               <option value="electronics">Electronics</option>
               <option value="home">Home</option>
@@ -59,9 +90,20 @@ class Home extends React.Component {
               <option value="appliances">Appliances</option>
               <option value="toys">Toys</option>
             </select>
-          </label> */}
+          </label>
           <input type="submit" value="Submit" />
         </form>
+        {this.state._isLoaded ? (
+          <AdvertList
+            adverts={this.state.adverts}
+            handleClick={this.handleClick}
+          />
+        ) : (
+          <p>Loading</p>
+        )}
+        {this.state.selectedAdvert && (
+          <AdvertDetail selectedAdvert={this.state.selectedAdvert} />
+        )}
       </>
     );
   }
