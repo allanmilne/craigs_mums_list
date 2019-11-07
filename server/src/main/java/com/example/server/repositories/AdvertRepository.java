@@ -12,6 +12,6 @@ public interface AdvertRepository extends JpaRepository<Advert, Long> {
 
     List<Advert> findAdvertBySellerId(Long sellerId);
 
-    @Query(value = "select a from Advert a join a.seller s WHERE lower(a.title) like lower(concat('%', :title, '%')) and a.category = :category")
+    @Query(value = "select a from Advert a WHERE lower(a.title) like lower(concat('%', :title, '%')) and a.category = :category")
     List<Advert> customSearchIgnoreCase(@Param("title") String title, @Param("category") Category category);
 }
