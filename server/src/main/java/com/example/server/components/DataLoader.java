@@ -39,7 +39,7 @@ public class DataLoader implements ApplicationRunner {
         Advert advert2 = new Advert("fridge.png", "This fridge is cold", "Modern Fridge", Category.APPLIANCES, 100, new Date(), false, seller1);
         advertRepository.save(advert2);
 
-        Advert advert7 = new Advert("hammer.png", "Rusty hammer", "Hammer", Category.HOME, 1000, new Date(2323223232L), false, seller2);
+        Advert advert7 = new Advert("hammer2.png", "Old hammer", "Hammer", Category.HOME, 998, new Date(2323223232L), false, seller2);
         advertRepository.save(advert7);
 
         Advert advert3 = new Advert("car.png", "The car is really fast and nice", "Fast car", Category.AUTOMOBILES, 50000, new Date(), false, seller1);
